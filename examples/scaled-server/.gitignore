@@ -1,0 +1,15 @@
+# Binaries
+scaled-server
+test-client
+
+# Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go sum backup files
+go.sum.backup
