@@ -166,9 +166,40 @@ The server implements Redis-based message queuing for distributing server-sent e
 - `-redis-db`: Redis database number (default: `0`)
 - `-redis-prefix`: Redis key prefix (default: `mcp`)
 
-## Development
+## Testing
 
-### Testing with Multiple Users
+The example includes comprehensive tests to validate the distributed functionality:
+
+### Simple Test
+
+```bash
+# Build and run the simple test
+go build -o simple-test simple-test.go
+./simple-test -server=http://localhost:8080 -user=alice
+```
+
+This test validates:
+- Health check connectivity
+- MCP protocol initialization
+- Tool calls (greet, calculate)
+- Prompt and resource listing
+
+### Distributed Functionality Test
+
+```bash
+# Run the comprehensive distributed test
+./test-distributed.sh
+```
+
+This test validates:
+- Multiple server instances running
+- User isolation across servers
+- Redis session storage and format
+- Cross-server session distribution
+
+### Manual Testing
+
+You can also test manually with curl or the provided test scripts.
 
 You can test session isolation by using different user tokens:
 
